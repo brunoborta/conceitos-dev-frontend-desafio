@@ -16,11 +16,19 @@ function App() {
   }, []);
 
   async function handleAddRepository() {
-    // TODO
+    const response = await api.post("repositories", {
+      title: `repositorio muito mais louco ${Date.now()}`,
+      url: "http://github.com/brunoborta/algo",
+      techs: ["vuejs", "reactJS", "react native"],
+    });
+    const newRepository = response.data;
+    setRepositories([...repositories, newRepository]);
   }
 
   async function handleRemoveRepository(id) {
-    // TODO
+    if (id) {
+      // await api.delete('repositories')
+    }
   }
 
   return (
